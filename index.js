@@ -13,7 +13,18 @@ import {
 const MODULE_ID = 'address_ledger';
 const METADATA_KEY = 'addressLedger';
 const PROMPT_ID = 'address-ledger-state';
-const TEMPLATE_FOLDER = 'third-party/address-ledger';
+
+function getTemplateFolder() {
+    const directoryUrl = new URL('.', import.meta.url);
+    const folderName = directoryUrl.pathname.split('/').filter(Boolean).at(-1);
+    if (!folderName) {
+        throw new Error('无法识别扩展安装目录。');
+    }
+
+    return `third-party/${decodeURIComponent(folderName)}`;
+}
+
+const TEMPLATE_FOLDER = getTemplateFolder();
 
 const TYPE_LABELS = Object.freeze({
     formal: '正式称呼',

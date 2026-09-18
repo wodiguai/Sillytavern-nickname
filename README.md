@@ -2,7 +2,7 @@
 
 一个不依赖服务器插件的 SillyTavern UI 扩展，用于按聊天记录角色之间的称呼惯例，并把精简状态注入下一轮生成提示。
 
-## 当前版本（0.1.0）
+## 当前版本（0.1.1）
 
 - 按聊天保存，数据位于 `chatMetadata.addressLedger`。
 - 明确记录“使用者 → 被称呼者”，不会反向套用。
@@ -18,6 +18,14 @@
 
 ## 安装
 
+### 通过 Git URL 安装（推荐）
+
+1. 在 SillyTavern 中打开“扩展”→“安装扩展”。
+2. 粘贴：`https://github.com/wodiguai/Sillytavern-nickname.git`
+3. 安装完成后刷新页面，在扩展面板中展开“Address Ledger｜称呼关系簿”。
+
+扩展会自动识别实际安装文件夹，因此仓库名不需要固定为 `address-ledger`。
+
 ### 手动安装
 
 1. 把整个 `address-ledger` 文件夹复制到 SillyTavern 的下列目录之一：
@@ -26,7 +34,7 @@
 2. 重启 SillyTavern，或刷新页面。
 3. 打开“扩展”面板，找到“Address Ledger｜称呼关系簿”。
 
-文件夹名称应保持为 `address-ledger`，否则模板路径无法匹配。
+手动安装时文件夹可以自定义，但同一 SillyTavern 实例中不要保留多个本扩展副本。
 
 ## 使用
 

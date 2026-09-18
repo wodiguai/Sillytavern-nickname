@@ -24,3 +24,9 @@ test('literal UI ids referenced by index.js exist in settings template', async (
     const missing = [...new Set(referencedIds)].filter(id => !html.includes(`id="${id}"`));
     assert.deepEqual(missing, []);
 });
+
+test('template folder follows the actual installation directory', async () => {
+    const source = await readFile(path.join(root, 'index.js'), 'utf8');
+    assert.match(source, /new URL\('\.', import\.meta\.url\)/u);
+    assert.doesNotMatch(source, /const TEMPLATE_FOLDER = 'third-party\/address-ledger'/u);
+});

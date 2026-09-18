@@ -7,7 +7,8 @@
   "js": "index.js",
   "css": "style.css",
   "author": "Jiangxuyan & OpenAI Codex",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "homePage": "https://github.com/wodiguai/Sillytavern-nickname",
   "auto_update": false,
   "hooks": {
     "activate": "onActivate",
