@@ -1,0 +1,136 @@
+.address-ledger-settings .notes {
+    opacity: 0.82;
+    margin: 0.4rem 0 0.8rem;
+}
+
+.al-settings-grid,
+.al-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.al-settings-grid label,
+.al-form-grid label,
+.al-sliders label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.al-settings-grid .checkbox_label,
+.al-editor .checkbox_label {
+    flex-direction: row;
+    align-items: center;
+}
+
+.al-wide {
+    grid-column: 1 / -1;
+}
+
+.al-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.8rem 0;
+}
+
+.al-status {
+    font-size: 0.9em;
+    opacity: 0.82;
+    margin-bottom: 0.55rem;
+}
+
+.al-empty {
+    opacity: 0.7;
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px dashed var(--SmartThemeBorderColor);
+    border-radius: 8px;
+}
+
+.al-record-list {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.al-record-card {
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 8px;
+    padding: 0.7rem;
+    background: color-mix(in srgb, var(--SmartThemeBlurTintColor) 82%, transparent);
+}
+
+.al-record-title {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.al-record-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.45rem 0;
+}
+
+.al-chip {
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 999px;
+    padding: 0.12rem 0.45rem;
+    font-size: 0.82em;
+}
+
+.al-record-notes {
+    opacity: 0.82;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.al-record-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.55rem;
+}
+
+.al-editor,
+.al-preview-wrap {
+    margin-top: 0.9rem;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+    padding-top: 0.7rem;
+}
+
+.al-editor > summary,
+.al-preview-wrap > summary {
+    cursor: pointer;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.al-sliders {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+}
+
+.al-sliders input[type="range"] {
+    width: 100%;
+}
+
+#al-prompt-preview {
+    width: 100%;
+    resize: vertical;
+    font-family: var(--monoFontFamily, monospace);
+}
+
+@media (max-width: 700px) {
+    .al-settings-grid,
+    .al-form-grid,
+    .al-sliders {
+        grid-template-columns: 1fr;
+    }
+
+    .al-wide {
+        grid-column: auto;
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "display_name": "Address Ledger｜称呼关系簿",
+  "loading_order": 120,
+  "requires": [],
+  "optional": [],
+  "dependencies": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "Jiangxuyan & OpenAI Codex",
+  "version": "0.1.0",
+  "auto_update": false,
+  "hooks": {
+    "activate": "onActivate",
+    "enable": "onEnable",
+    "disable": "onDisable"
+  }
+}

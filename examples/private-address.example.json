@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "id": "example-private-address",
+      "speaker": "角色A",
+      "target": "角色B",
+      "address": "小月亮",
+      "type": "private_intimate",
+      "status": "accepted",
+      "acceptance": 90,
+      "familiarity": 75,
+      "emotionalSalience": 90,
+      "habituationResistance": 85,
+      "preferredFrequency": "rare",
+      "allowedContexts": [
+        "private",
+        "emotionally_intimate"
+      ],
+      "allowedSpeakers": [
+        "角色A"
+      ],
+      "publicUse": "not_allowed",
+      "exclusiveToSpeaker": true,
+      "reactionProfile": [
+        "shyness",
+        "tenderness",
+        "emotional_stirring",
+        "feigned_annoyance"
+      ],
+      "recoveryWindowMessages": 20,
+      "notes": "只在关系非常亲密或情绪袒露时使用。",
+      "evidence": [],
+      "createdAt": "2026-09-18T00:00:00.000Z",
+      "updatedAt": "2026-09-18T00:00:00.000Z"
+    }
+  ]
+}

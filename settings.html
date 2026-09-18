@@ -1,0 +1,131 @@
+<div id="address-ledger-settings" class="address-ledger-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>Address Ledger｜称呼关系簿</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <p class="notes">按聊天保存称呼方向、接受度、熟悉度和私密称呼的情绪显著度，并在生成前注入简短状态。</p>
+
+            <div class="al-settings-grid">
+                <label class="checkbox_label">
+                    <input id="al-enabled" type="checkbox" />
+                    <span>启用提示注入</span>
+                </label>
+                <label class="checkbox_label">
+                    <input id="al-include-rules" type="checkbox" />
+                    <span>附带连续性规则</span>
+                </label>
+                <label class="checkbox_label">
+                    <input id="al-scan-usage" type="checkbox" />
+                    <span>扫描当前聊天中的使用次数</span>
+                </label>
+                <label>
+                    注入深度
+                    <input id="al-depth" class="text_pole" type="number" min="0" max="999" />
+                </label>
+                <label>
+                    注入角色
+                    <select id="al-role" class="text_pole">
+                        <option value="0">System</option>
+                        <option value="1">User</option>
+                        <option value="2">Assistant</option>
+                    </select>
+                </label>
+                <label>
+                    最多注入记录数
+                    <input id="al-max-records" class="text_pole" type="number" min="1" max="200" />
+                </label>
+            </div>
+
+            <div class="al-toolbar">
+                <button id="al-add-record" class="menu_button">新增称呼</button>
+                <button id="al-export" class="menu_button">导出JSON</button>
+                <button id="al-import" class="menu_button">导入JSON</button>
+                <button id="al-copy-prompt" class="menu_button">复制注入预览</button>
+                <input id="al-import-file" type="file" accept="application/json,.json" hidden />
+            </div>
+
+            <div id="al-status" class="al-status"></div>
+            <div id="al-empty" class="al-empty">当前聊天还没有称呼记录。</div>
+            <div id="al-record-list" class="al-record-list"></div>
+
+            <details id="al-editor" class="al-editor">
+                <summary>称呼编辑器</summary>
+                <input id="al-record-id" type="hidden" />
+
+                <div class="al-form-grid">
+                    <label>使用者<input id="al-speaker" class="text_pole" type="text" placeholder="谁在叫" /></label>
+                    <label>被称呼者<input id="al-target" class="text_pole" type="text" placeholder="叫谁" /></label>
+                    <label>称呼<input id="al-address" class="text_pole" type="text" placeholder="例如：阿宁" /></label>
+                    <label>类型
+                        <select id="al-type" class="text_pole">
+                            <option value="formal">正式称呼</option>
+                            <option value="name">姓名</option>
+                            <option value="nickname">昵称</option>
+                            <option value="daily_affectionate">日常爱称</option>
+                            <option value="private_intimate">私密爱称</option>
+                            <option value="family">家庭称呼</option>
+                            <option value="work">工作称呼</option>
+                            <option value="forbidden">禁用称呼</option>
+                        </select>
+                    </label>
+                    <label>状态
+                        <select id="al-record-status" class="text_pole">
+                            <option value="new">首次/未确认</option>
+                            <option value="testing">试探中</option>
+                            <option value="tolerated">默认允许</option>
+                            <option value="accepted">已接受</option>
+                            <option value="habitual">已经习惯</option>
+                            <option value="rejected">已拒绝</option>
+                            <option value="retired">已停用</option>
+                        </select>
+                    </label>
+                    <label>期望频率
+                        <select id="al-frequency" class="text_pole">
+                            <option value="rare">稀少</option>
+                            <option value="occasional">偶尔</option>
+                            <option value="normal">普通</option>
+                            <option value="frequent">频繁</option>
+                        </select>
+                    </label>
+                    <label>公开场合
+                        <select id="al-public-use" class="text_pole">
+                            <option value="allowed">允许</option>
+                            <option value="unconfirmed">尚未确认</option>
+                            <option value="not_allowed">不允许</option>
+                        </select>
+                    </label>
+                    <label>恢复间隔（消息数）<input id="al-recovery" class="text_pole" type="number" min="1" max="9999" /></label>
+                    <label class="al-wide">允许场景（逗号分隔）<input id="al-contexts" class="text_pole" type="text" placeholder="private, emotionally_intimate" /></label>
+                    <label class="al-wide">获准使用者（逗号分隔）<input id="al-allowed-speakers" class="text_pole" type="text" /></label>
+                    <label class="al-wide">可能反应（逗号分隔）<input id="al-reactions" class="text_pole" type="text" placeholder="shyness, tenderness, emotional_stirring" /></label>
+                </div>
+
+                <div class="al-sliders">
+                    <label>接受度 <output id="al-acceptance-value"></output><input id="al-acceptance" type="range" min="0" max="100" /></label>
+                    <label>熟悉度 <output id="al-familiarity-value"></output><input id="al-familiarity" type="range" min="0" max="100" /></label>
+                    <label>情绪显著度 <output id="al-salience-value"></output><input id="al-salience" type="range" min="0" max="100" /></label>
+                    <label>抗习惯化 <output id="al-resistance-value"></output><input id="al-resistance" type="range" min="0" max="100" /></label>
+                </div>
+
+                <label class="checkbox_label">
+                    <input id="al-exclusive" type="checkbox" />
+                    <span>仅获准使用者可用</span>
+                </label>
+                <label>备注<textarea id="al-notes" class="text_pole" rows="3"></textarea></label>
+
+                <div class="al-toolbar">
+                    <button id="al-private-preset" class="menu_button">套用“稀少但高冲击”</button>
+                    <button id="al-save-record" class="menu_button">保存称呼</button>
+                    <button id="al-cancel-edit" class="menu_button">取消</button>
+                </div>
+            </details>
+
+            <details class="al-preview-wrap">
+                <summary>注入预览</summary>
+                <textarea id="al-prompt-preview" class="text_pole" rows="12" readonly></textarea>
+            </details>
+        </div>
+    </div>
+</div>
